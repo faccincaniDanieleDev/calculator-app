@@ -17,7 +17,7 @@ class CalculatorApp:
             window: Root tkinter window.
         """
         self._model = CalculatorModel()
-        self._view = CalculatorView()
+        self._view = CalculatorView(window)
         self._view.bind_button(self._handle_button)
         self._view.bind_ce(self._handle_ce)
         
@@ -31,7 +31,7 @@ class CalculatorApp:
         match value:
             case "+" | "-" | "*" | "/": self._handle_operator(value)
             case "=": self._handle_equals()
-            case _: self._handle_digit()
+            case _: self._handle_digit(value)
             
     def _handle_operator(self, op: str) -> None:
         """Handles the press of an operator key and updates the display.
