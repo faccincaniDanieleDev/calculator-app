@@ -109,7 +109,7 @@ class CalculatorModel:
         if current_display == "0" and digit != ".":
             return digit
         
-        return current_display, digit
+        return current_display + digit
     
     @staticmethod
     def _evaluate(a: str, op: str, b: str) -> str:
